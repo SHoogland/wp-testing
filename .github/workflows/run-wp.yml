@@ -64,4 +64,6 @@ jobs:
         name: screenshot
         path: screenshot.png
 
-    - run: php vendor/bin/wp --info
+    - run: |
+      source vendor/wp-cli/wp-cli/utils/wp-completion.bash
+      wp --info
