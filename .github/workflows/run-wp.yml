@@ -53,7 +53,7 @@ jobs:
     - name: npm ci
       run: |
         npm ci
-        npm run wp-env start
+        npm run wp-env
 
      # - run: docker run -d -p 80:80 --name my-apache-php-app -v "$PWD/dist/wordpress":/var/www/html php:7.3-apache
     - run: node index.mjs --experimental-modules
