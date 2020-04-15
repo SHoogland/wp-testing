@@ -20,15 +20,16 @@
     "require": {
       "johnpbloch/wordpress": "*",
       "wpackagist-plugin/mailgun": "*",
-      "wpackagist-plugin/tiny-compress-images": "*"
+      "wpackagist-plugin/tiny-compress-images": "*",
+      "wp-cli/wp-cli-bundle": "*"
     },
     "extra": {
-      "wordpress-install-dir": "dist/wordpress",
+      "wordpress-install-dir": "wordpress",
       "installer-paths": {
-        "dist/content/plugins/{$name}/": [
+        "wordpress/wp-content/plugins/{$name}/": [
           "type:wordpress-plugin"
         ],
-        "dist/content/themes/{$name}/": [
+        "wordpress/wp-content/themes/{$name}/": [
           "type:wordpress-theme"
         ]
       }
