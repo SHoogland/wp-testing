@@ -1,0 +1,37 @@
+{
+    "name": "stephan/wp-testing",
+    "authors": [
+        {
+            "name": "Stephan Hoogland",
+            "email": "stephan@shoogland.com"
+        }
+    ],
+    "description": "<%= description %>",
+    "repositories": [
+      {
+        "type": "composer",
+        "url": "https://wpackagist.org"
+      },
+      {
+        "type": "vcs",
+        "url": "https://github.com/matiseams/matise-wp-core"
+      }
+    ],
+    "require": {
+      "johnpbloch/wordpress": "*",
+      "wpackagist-plugin/mailgun": "*",
+      "wpackagist-plugin/tiny-compress-images": "*",
+      "matise/matise-wp-core": "*"
+    },
+    "extra": {
+      "wordpress-install-dir": "dist/wordpress",
+      "installer-paths": {
+        "dist/content/plugins/{$name}/": [
+          "type:wordpress-plugin"
+        ],
+        "dist/content/themes/{$name}/": [
+          "type:wordpress-theme"
+        ]
+      }
+    }
+}
