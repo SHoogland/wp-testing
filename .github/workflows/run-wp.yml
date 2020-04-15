@@ -53,17 +53,14 @@ jobs:
     - name: npm ci
       run: |
         npm ci
+        npm run wp-env start
 
-    - run: docker run -d -p 80:80 --name my-apache-php-app -v "$PWD/dist/wordpress":/var/www/html php:7.3-apache
+     # - run: docker run -d -p 80:80 --name my-apache-php-app -v "$PWD/dist/wordpress":/var/www/html php:7.3-apache
     - run: node index.mjs --experimental-modules
-    - run: docker logs my-apache-php-app
+    # - run: docker logs my-apache-php-app
 
     - name: Upload screenshot
       uses: actions/upload-artifact@v1
       with:
         name: screenshot
         path: screenshot.png
-
-    - run: |
-        source vendor/wp-cli/wp-cli/utils/wp-completion.bash
-        wp --info

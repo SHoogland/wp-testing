@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/SHoogland/wp-testing#readme",
   "dependencies": {
+    "@wordpress/env": "^1.2.0",
     "puppeteer-core": "^2.1.1"
   }
 }
