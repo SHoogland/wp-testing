@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/SHoogland/wp-testing/issues"
   },
-  "homepage": "https://github.com/SHoogland/wp-testing#readme"
+  "homepage": "https://github.com/SHoogland/wp-testing#readme",
+  "dependencies": {
+    "puppeteer-core": "^2.1.1"
+  }
 }
