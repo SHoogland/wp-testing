@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b1f83a562336174673b549a8db1c4cfc",
+    "content-hash": "df6d60965bb962101e215fe5642ecea6",
     "packages": [
         {
             "name": "composer/installers",
@@ -260,45 +260,6 @@
                 "wordpress"
             ],
             "time": "2018-11-09T20:10:38+00:00"
-        },
-        {
-            "name": "matise/matise-wp-core",
-            "version": "2.0.65",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:MatiseAms/matise-wp-core.git",
-                "reference": "7e48fa277e7d86176116b63c342c1881d5b6e9a3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/MatiseAms/matise-wp-core/zipball/7e48fa277e7d86176116b63c342c1881d5b6e9a3",
-                "reference": "7e48fa277e7d86176116b63c342c1881d5b6e9a3",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.0.0"
-            },
-            "type": "wordpress-plugin",
-            "license": [
-                "GPL-2.0-only"
-            ],
-            "authors": [
-                {
-                    "name": "Stephan",
-                    "email": "stephan@matise.nl"
-                },
-                {
-                    "name": "Dennis",
-                    "email": "dennis@matise.nl"
-                }
-            ],
-            "description": "Often used functions and extensions for matise projects",
-            "homepage": "https://matise.nl",
-            "support": {
-                "source": "https://github.com/MatiseAms/matise-wp-core/tree/v2.0.65",
-                "issues": "https://github.com/MatiseAms/matise-wp-core/issues"
-            },
-            "time": "2020-04-08T10:03:45+00:00"
         },
         {
             "name": "wpackagist-plugin/mailgun",
