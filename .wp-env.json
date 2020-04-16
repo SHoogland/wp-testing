@@ -1,4 +1,4 @@
 {
 	"core": null,
-	"plugins": [ "./wordpress/wp-content/plugins/mailgun" ]
+	"plugins": [ "./plugin" ]
 }

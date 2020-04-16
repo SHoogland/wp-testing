@@ -1,36 +1,35 @@
 {
-    "name": "stephan/wp-testing",
-    "authors": [
-        {
-            "name": "Stephan Hoogland",
-            "email": "stephan@shoogland.com"
-        }
-    ],
-    "description": "<%= description %>",
-    "repositories": [
+  "name": "stephan/wp-testing",
+  "authors": [
       {
-        "type": "composer",
-        "url": "https://wpackagist.org"
-      },
-      {
-        "type": "vcs",
-        "url": "https://github.com/matiseams/matise-wp-core"
+          "name": "Stephan Hoogland",
+          "email": "stephan@shoogland.com"
       }
-    ],
-    "require": {
-      "johnpbloch/wordpress": "*",
-      "wpackagist-plugin/mailgun": "*",
-      "wpackagist-plugin/tiny-compress-images": "*"
+  ],
+  "description": "<%= description %>",
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://wpackagist.org"
     },
-    "extra": {
-      "wordpress-install-dir": "wordpress",
-      "installer-paths": {
-        "wordpress/wp-content/plugins/{$name}/": [
-          "type:wordpress-plugin"
-        ],
-        "wordpress/wp-content/themes/{$name}/": [
-          "type:wordpress-theme"
-        ]
-      }
+    {
+      "type": "vcs",
+      "url": "https://github.com/matiseams/matise-wp-core"
     }
+  ],
+  "require": {
+    "johnpbloch/wordpress": "*",
+    "wpackagist-plugin/mailgun": "*",
+    "wpackagist-plugin/tiny-compress-images": "*"
+  },
+  "extra": {
+    "installer-paths": {
+      "wordpress/wp-content/plugins/{$name}/": [
+        "type:wordpress-plugin"
+      ],
+      "wordpress/wp-content/themes/{$name}/": [
+        "type:wordpress-theme"
+      ]
+    }
+  }
 }

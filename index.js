@@ -1,4 +1,4 @@
-import puppeteer from 'puppeteer-core'
+const puppeteer = require('puppeteer-core');
 
 (async () => {
 	const browser = await puppeteer.launch({executablePath: process.env.CHROME_BIN})

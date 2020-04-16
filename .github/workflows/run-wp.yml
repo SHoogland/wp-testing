@@ -22,20 +22,20 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
 
-    - name: Get Composer Cache Directory
-      id: composer-cache
-      run: |
-        echo "::set-output name=dir::$(composer config cache-files-dir)"
-    - uses: actions/cache@v1
-      with:
-        path: ${{ steps.composer-cache.outputs.dir }}
-        key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-composer-
-    - name: Composer Install
-      uses: php-actions/composer@v1
-      with:
-        args: install
+    # - name: Get Composer Cache Directory
+    #   id: composer-cache
+    #   run: |
+    #     echo "::set-output name=dir::$(composer config cache-files-dir)"
+    # - uses: actions/cache@v1
+    #   with:
+    #     path: ${{ steps.composer-cache.outputs.dir }}
+    #     key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+    #     restore-keys: |
+    #       ${{ runner.os }}-composer-
+    # - name: Composer Install
+    #   uses: php-actions/composer@v1
+    #   with:
+    #     args: install
     - name: Read .nvmrc
       run: echo "##[set-output name=NVMRC;]$(cat .nvmrc)"
       id: nvm
@@ -50,14 +50,16 @@ jobs:
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-cache-
+
     - name: npm ci
       run: |
         npm ci
+
+    - name: setup wp env
+      run: |
         npm run wp-env
 
-     # - run: docker run -d -p 80:80 --name my-apache-php-app -v "$PWD/dist/wordpress":/var/www/html php:7.3-apache
-    - run: node index.mjs --experimental-modules
-    # - run: docker logs my-apache-php-app
+    - run: npm start
 
     - name: Upload screenshot
       uses: actions/upload-artifact@v1
