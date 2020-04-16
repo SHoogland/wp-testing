@@ -59,10 +59,12 @@ jobs:
       run: |
         npm run wp-env
 
+    - run: mkdir screenshots
+
     - run: npm start
 
     - name: Upload screenshot
       uses: actions/upload-artifact@v1
       with:
-        name: screenshot
-        path: screenshot.png
+        name: screenshots
+        path: screenshots
