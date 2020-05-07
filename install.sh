@@ -40,12 +40,6 @@ EOF
 
 chmod 600 /etc/ipsec.secrets
 
-# For CentOS/RHEL & Fedora ONLY
-mv /etc/strongswan/ipsec.conf /etc/strongswan/ipsec.conf.old 2>/dev/null
-mv /etc/strongswan/ipsec.secrets /etc/strongswan/ipsec.secrets.old 2>/dev/null
-ln -s /etc/ipsec.conf /etc/strongswan/ipsec.conf
-ln -s /etc/ipsec.secrets /etc/strongswan/ipsec.secrets
-
 cat > /etc/xl2tpd/xl2tpd.conf <<EOF
 [lac myvpn]
 lns = $VPN_SERVER_IP
