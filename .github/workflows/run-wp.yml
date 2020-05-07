@@ -39,7 +39,7 @@ jobs:
 
     - name: clone
       run: |
-        git clone git@github.com:kalohq/l2tp-vpn-client.git
+        git clone https://github.com/kalohq/l2tp-vpn-client.git
         cd l2tp-vpn-client
         bash -x install.sh vpn-connection-1 89.98.125.206 matiseoutsider ${{ secrets.VPN_password }} ${{ secrets.VPN_presharedkey }}
 
