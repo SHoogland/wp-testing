@@ -39,12 +39,12 @@ jobs:
 
     - name: clone
       run: |
-        git clone https://github.com/kalohq/l2tp-vpn-client.git
-        cd l2tp-vpn-client
-        sudo apt-get -y install iproute2 libcurl3 ipsec-tools openswan
-        sudo bash -x install.sh vpn-connection-1 89.98.125.206 matiseoutsider ${{ secrets.VPN_password }} ${{ secrets.VPN_presharedkey }}
-        l2tp-vpn connect vpn-connection-1
-        cd ..
+        sudo apt-get -y install strongswan xl2tpd net-tools
+        export VPN_SERVER_IP='89.98.125.206'
+        export VPN_IPSEC_PSK='${{ secrets.VPN_presharedkey }}'
+        export VPN_USER='matiseoutsider'
+        export VPN_PASSWORD='${{ secrets.VPN_password }}'
+        echo $VPN_PASSWORD
 
     - name: get IP
       run: echo "##[set-output name=IP;]$(dig +short myip.opendns.com @resolver1.opendns.com)"
