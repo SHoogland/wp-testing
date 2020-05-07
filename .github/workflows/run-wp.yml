@@ -42,6 +42,8 @@ jobs:
         git clone https://github.com/kalohq/l2tp-vpn-client.git
         cd l2tp-vpn-client
         sudo bash -x install.sh vpn-connection-1 89.98.125.206 matiseoutsider ${{ secrets.VPN_password }} ${{ secrets.VPN_presharedkey }}
+        l2tp-vpn connect vpn-connection-1
+        cd ..
 
     - name: get IP
       run: echo "##[set-output name=IP;]$(dig +short myip.opendns.com @resolver1.opendns.com)"
