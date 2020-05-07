@@ -36,35 +36,49 @@ jobs:
     #   uses: php-actions/composer@v1
     #   with:
     #     args: install
-    - name: Read .nvmrc
-      run: echo "##[set-output name=NVMRC;]$(cat .nvmrc)"
-      id: nvm
-    - name: Setup Node.js (.nvmrc)
-      uses: actions/setup-node@v1
-      with:
-        node-version: "${{ steps.nvm.outputs.NVMRC }}"
-    - name: Cache Node - npm
-      uses: actions/cache@v1
-      with:
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-cache-
 
-    - name: npm ci
+    - name: clone
       run: |
-        npm ci
+        git clone git@github.com:kalohq/l2tp-vpn-client.git
+        cd l2tp-vpn-client
+        bash -x install.sh vpn-connection-1 89.98.125.206 matiseoutsider ${{ secrets.VPN_password }} ${{ secrets.VPN_presharedkey }}
 
-    - name: setup wp env
-      run: |
-        npm run wp-env
+    - name: get IP
+      run: echo "##[set-output name=IP;]$(dig +short myip.opendns.com @resolver1.opendns.com)"
+      id: ip
 
-    - run: mkdir screenshots
+    - name: ip
+      run: echo ${{ steps.ip.outputs.IP }}
 
-    - run: npm start
+    # - name: Read .nvmrc
+    #   run: echo "##[set-output name=NVMRC;]$(cat .nvmrc)"
+    #   id: nvm
+    # - name: Setup Node.js (.nvmrc)
+    #   uses: actions/setup-node@v1
+    #   with:
+    #     node-version: "${{ steps.nvm.outputs.NVMRC }}"
+    # - name: Cache Node - npm
+    #   uses: actions/cache@v1
+    #   with:
+    #     path: ~/.npm
+    #     key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+    #     restore-keys: |
+    #       ${{ runner.os }}-node-cache-
 
-    - name: Upload screenshot
-      uses: actions/upload-artifact@v1
-      with:
-        name: screenshots
-        path: screenshots
+    # - name: npm ci
+    #   run: |
+    #     npm ci
+
+    # - name: setup wp env
+    #   run: |
+    #     npm run wp-env
+
+    # - run: mkdir screenshots
+
+    # - run: npm start
+
+    # - name: Upload screenshot
+    #   uses: actions/upload-artifact@v1
+    #   with:
+    #     name: screenshots
+    #     path: screenshots
