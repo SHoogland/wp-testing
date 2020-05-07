@@ -45,14 +45,14 @@ jobs:
         export VPN_USER='matiseoutsider'
         export VPN_PASSWORD='${{ secrets.VPN_password }}'
         sudo bash -x install.sh
-        mkdir -p /var/run/xl2tpd
-        touch /var/run/xl2tpd/l2tp-control
-        service strongswan restart
-        service xl2tpd restart
-        ipsec up myvpn
-        echo "c myvpn" > /var/run/xl2tpd/l2tp-control
-        ifconfig
-        ip route
+        sudo mkdir -p /var/run/xl2tpd
+        sudo touch /var/run/xl2tpd/l2tp-control
+        sudo service strongswan restart
+        sudo service xl2tpd restart
+        sudo ipsec up myvpn
+        sudo echo "c myvpn" > /var/run/xl2tpd/l2tp-control
+        sudo ifconfig
+        sudo ip route
 
     - name: get IP
       run: echo "##[set-output name=IP;]$(dig +short myip.opendns.com @resolver1.opendns.com)"
